@@ -1,0 +1,49 @@
+paths:
+  /user/getWorkStatus/{id}:
+    get:
+      description: "get work status Details"
+      tags:
+        - get workstatus of particular user
+      parameters:
+        - in: "path"
+          name: "id"
+          description: "get the work status  Details"
+          type: "Integer"
+          schema:
+              type: "object"
+              required: true
+              properties:
+                id:
+                  type: "integer"                                                              
+      responses:
+        "200":
+          description: "get work status Details"
+          schema:
+            type: "object"
+            properties:
+              employeeDetails:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                  userId:
+                    type: "integer"
+                  projectTaskMappingId:
+                    type: "integer"
+                  fromTime:
+                    type: "time"
+                  toTime:
+                    type: "time"
+                  workDescription: 
+                    type: "string"
+                  isDeleted:
+                    type: "boolean"      
+        "402":
+          description: "Invalid Request"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              statuscode:
+                type: "boolean"

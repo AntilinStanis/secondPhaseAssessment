@@ -1,0 +1,40 @@
+paths:
+  /user/updateWorkDetails:
+    post:
+      description: "update work status Details"
+      tags:
+        - Edit workstatus of particular user
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Update the work status  Details"
+          type: "Integer"
+          schema:
+              type: "object"
+              required: true
+              properties:
+                id: 
+                  type: "integer"                     
+                workDescription:
+                  type: "string"                                                      
+      responses:
+        "200":
+          description: "Update work status Details"
+          schema:
+            type: "object"
+            properties:
+              data:
+                type: "array"
+                items:
+                  type: "integer"
+              success:
+                type: "boolean"      
+        "402":
+          description: "Invalid Request"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              statuscode:
+                type: "boolean"

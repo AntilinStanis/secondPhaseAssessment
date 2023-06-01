@@ -1,0 +1,48 @@
+paths:
+  /user/insertProjectTaskMapping:
+    post:
+      description: "Insert projectTask Mapping  Details"
+      tags:
+        - projectTask Mapping data
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Enter the projectTask Mapping  Details"
+          # type: "Integer"
+          schema:
+              type: "object"
+              required: true
+              properties:
+                projectId: 
+                  type: "integer"
+                taskId:
+                  type: "integer"
+                isDeleted:
+                  type: "boolean"      
+      responses:
+        "200":
+          description: "Insert projectTask Mapping Details"
+          schema:
+            type: "object"
+            properties:
+              employeeDetails:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                  projectId:
+                    type: "integer"
+                  taskId:
+                    type: "integer"
+                  isDeleted:
+                    type: "boolean"
+        "402":
+          description: "Invalid Request"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              statuscode:
+                type: "boolean"
+  

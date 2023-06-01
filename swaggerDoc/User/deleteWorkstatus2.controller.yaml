@@ -1,0 +1,38 @@
+paths:
+  /user/deleteWorkStatus:
+    put:
+      description: "delete work status Details"
+      tags:
+        - Delete workstatus of particular user
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "delete the work status  Details"
+          type: "Integer"
+          schema:
+              type: "object"
+              required: true
+              properties:
+                id: 
+                  type: "integer"                                                                           
+      responses:
+        "200":
+          description: "delete work status Details"
+          schema:
+            type: "object"
+            properties:
+              data:
+                type: "array"
+                items:
+                  type: "integer"
+              success:
+                type: "boolean"   
+        "402":
+          description: "Invalid Request"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              statuscode:
+                type: "boolean"

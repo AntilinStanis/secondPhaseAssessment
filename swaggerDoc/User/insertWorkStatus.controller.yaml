@@ -1,0 +1,65 @@
+paths:
+  /user/insertWorkStatus:
+    post:
+      description: "Insert work status Details"
+      tags:
+        - Enter user workstatus 
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Enter the work status  Details"
+          type: "Integer"
+          schema:
+              type: "object"
+              required: true
+              properties:
+                userId: 
+                  type: "integer"
+                fromTime:
+                  type: "time"
+                toTime:
+                  type: "time"
+                projectTaskMappingId: 
+                  type: "array"
+                  items:
+                    type: "integer"
+                  example: [1,2,3]                     
+                workDescription:
+                  type: "string"
+                isDeleted:
+                  type: "boolean"                                                        
+      responses:
+        "200":
+          description: "Insert work status Details"
+          schema:
+            type: "object"
+            properties:
+              workStatusDetails:
+                type: "object"
+                properties:
+                  id:
+                    type: "integer"
+                  userId:
+                    type: "integer"
+                  fromTime:
+                    type: "time"
+                  toTime:
+                    type: "time"    
+                  projectTaskMappingId:
+                    type: "array"
+                    items:
+                      type: "integer"
+                  workDescription: 
+                    type: "string"
+                  isDeleted:
+                    type: "boolean"      
+        "402":
+          description: "Invalid Request"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              statuscode:
+                type: "boolean"
+                
